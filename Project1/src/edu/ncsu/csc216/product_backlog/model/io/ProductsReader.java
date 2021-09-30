@@ -10,7 +10,7 @@ import edu.ncsu.csc216.product_backlog.model.task.Task;
 
 /**
  * contains the methods to read products from the file system
- * @author 19194
+ * @author Jaden Abrams
  *
  */
 public class ProductsReader {

@@ -24,29 +24,27 @@ public class Command {
 	 * @param noteText a note associated with the command
 	 */
 	public Command(CommandValue c, String owner, String noteText) {
-		this.c = c;
-		note = noteText;
-		this.owner = note;
+		
 	}
 	/**
 	 * returns the command type
 	 * @return the command type
 	 */
 	public CommandValue getCommand() {
-		return c;
+		return null;
 	}
 	/**
 	 * returns the note
 	 * @return the note
 	 */
 	public String getNoteText() {
-		return note;
+		return null;
 	}
 	/**
 	 * returns who owns the command
 	 * @return the owner
 	 */
 	public String getOwner() {
-		return owner;
+		return null;
 	}
 }

@@ -25,14 +25,14 @@ public class BacklogManager {
 	private Product currentProduct;
 	/** creates a new manager */
 	private BacklogManager() {
-		products = new ArrayList<Product>();
+		
 	}
 	/**
 	 * returns the current instance of the backlog
 	 * @return the backlog
 	 */
 	public static BacklogManager getInstance() {
-		return singleton;
+		return null;
 	}
 	/**
 	 * saves the products to a file

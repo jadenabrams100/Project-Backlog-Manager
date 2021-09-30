@@ -318,7 +318,7 @@ public class Task {
 		 * Constructor for the owned state
 		 */
 		private OwnedState() {
-			//currentState = ownedState;
+			
 		}
 		/**
 		 * updates the state
@@ -351,7 +351,7 @@ public class Task {
 		 * Constructor for the processing state
 		 */
 		private ProcessingState() {
-			//currentState = processingState;
+			
 		}
 		/**
 		 * updates the state
@@ -385,7 +385,7 @@ public class Task {
 		 * Constructor for the verifying state
 		 */
 		private VerifyingState() {
-			//currentState = verifyingState;
+			
 		}
 		/**
 		 * updates the state
@@ -420,7 +420,7 @@ public class Task {
 		 * constructor for the done state
 		 */
 		private DoneState() {
-			//currentState = doneState;
+			
 		}
 		
 		/**
@@ -454,7 +454,7 @@ public class Task {
 		 * Constructor for the rejected state
 		 */
 		private RejectedState() {
-			//currentState = rejectedState;
+			
 		}
 		/**
 		 * updates the state
