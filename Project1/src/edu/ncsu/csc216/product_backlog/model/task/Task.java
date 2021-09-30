@@ -29,12 +29,17 @@ public class Task {
 	/** the task state*/
 	private TaskState currentState;
 	
-	
+	/**The backlog state for state FSM*/
 	private BacklogState backlogState;
+	/**The owned state for state FSM*/
 	private OwnedState ownedState;
+	/**The verifying state for state FSM*/
 	private VerifyingState verifyingState;
+	/**The processing state for state FSM*/
 	private ProcessingState processingState;
+	/**The done state for state FSM*/
 	private DoneState doneState;
+	/**The rejected state for state FSM*/
 	private RejectedState rejectedState;
 	
 	
@@ -78,7 +83,7 @@ public class Task {
 	 * @param note a starter note for the task
 	 */
 	public Task(int id, String title, Type type, String creator, String note) {
-		setTaskId(id);
+		
 	}
 	/**
 	 * constructor for a task with more data associated with it
@@ -91,15 +96,8 @@ public class Task {
 	 * @param verified whether the task is verified or not
 	 * @param notes notes associated with the task
 	 */
-	public Task(int id, String state, String title, String type, String creator, String owner, boolean verified, ArrayList<String> notes) {
-		taskId = id;
-		setState(state);
-		setTitle(title);
-		setTypeFromString(type);
-		setCreator(creator);
-		setOwner(owner);
-		setNotes(notes);
-		setVerified(verified);
+	public Task(int id, String state, String title, String type, String creator, String owner, String verified, ArrayList<String> notes) {
+		
 		
 		
 	}
@@ -109,7 +107,7 @@ public class Task {
 	 * @param taskId task id to set
 	 */
 	private void setTaskId(int taskId) {
-		this.taskId = taskId;
+		
 	}
 	
 	/**
@@ -117,7 +115,7 @@ public class Task {
 	 * @param title the title to set
 	 */
 	private void setTitle(String title) {
-		this.title = title;
+		
 	}
 	
 	/**
@@ -125,35 +123,35 @@ public class Task {
 	 * @param type the type to set
 	 */
 	private void setType(Type type) {
-		this.type = type;
+		
 	}
 	/**
 	 * sets the task creator
 	 * @param creator the creator to set
 	 */
 	private void setCreator(String creator) {
-		this.creator = creator;
+		
 	}
 	/**
 	 * sets the task owner
 	 * @param owner the owner to set
 	 */
 	private void setOwner(String owner) {
-		this.owner = owner;
+		
 	}
 	/**
 	 * sets whether the task is verified or not
-	 * @param isVerified whether the task is verified
+	 * @param verified whether the task is verified
 	 */
-	private void setVerified(boolean isVerified) {
-		this.isVerified = isVerified;
+	private void setVerified(String verified) {
+		
 	}
 	/**
 	 * sets the notes for the task
 	 * @param notes the notes to set
 	 */
 	private void setNotes(ArrayList<String> notes) {
-		this.notes = notes;
+		
 	}
 	/**
 	 * adds a note to the list
@@ -168,7 +166,7 @@ public class Task {
 	 * @return the id
 	 */
 	public int getTaskId() {
-		return taskId;
+		return 0;
 	}
 	/**
 	 * returns the task state as a string
@@ -196,7 +194,7 @@ public class Task {
 	 * @return the type
 	 */
 	public Type getType() {
-		return type;
+		return null;
 	}
 	/**
 	 * gets the type short name
@@ -217,35 +215,35 @@ public class Task {
 	 * @return the owner
 	 */
 	public String getOwner() {
-		return owner;
+		return null;
 	}
 	/**
 	 * returns the title
 	 * @return the title
 	 */
 	public String getTitle() {
-		return title;
+		return null;
 	}
 	/**
 	 * gets the creator
 	 * @return the creator
 	 */
 	public String getCreator() {
-		return creator;
+		return null;
 	}
 	/**
 	 * returns whether the task is verified
 	 * @return if it is verified
 	 */
 	public boolean isVerified() {
-		return isVerified;
+		return false;
 	}
 	/**
 	 * gets the array notes
 	 * @return the notes
 	 */
 	public ArrayList<String> getNotes() {
-		return notes;
+		return null;
 	}
 	/**
 	 * gets the notes as a string
@@ -320,7 +318,7 @@ public class Task {
 		 * Constructor for the owned state
 		 */
 		private OwnedState() {
-			
+			//currentState = ownedState;
 		}
 		/**
 		 * updates the state
@@ -353,7 +351,7 @@ public class Task {
 		 * Constructor for the processing state
 		 */
 		private ProcessingState() {
-			
+			//currentState = processingState;
 		}
 		/**
 		 * updates the state
@@ -387,7 +385,7 @@ public class Task {
 		 * Constructor for the verifying state
 		 */
 		private VerifyingState() {
-			
+			//currentState = verifyingState;
 		}
 		/**
 		 * updates the state
@@ -422,7 +420,7 @@ public class Task {
 		 * constructor for the done state
 		 */
 		private DoneState() {
-			
+			//currentState = doneState;
 		}
 		
 		/**
@@ -456,7 +454,7 @@ public class Task {
 		 * Constructor for the rejected state
 		 */
 		private RejectedState() {
-			
+			//currentState = rejectedState;
 		}
 		/**
 		 * updates the state

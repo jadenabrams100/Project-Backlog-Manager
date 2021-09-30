@@ -1,5 +1,5 @@
 package edu.ncsu.csc216.product_backlog.model.product;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import edu.ncsu.csc216.product_backlog.model.command.Command;
@@ -24,36 +24,34 @@ public class Product {
 	 * @param productName the product name
 	 */
 	public Product(String productName){
-		setProductName(productName);
-		emptyList();
-		setTaskCounter();
+		
 	}
 	/**
 	 * Sets the product name
 	 * @param productName the product name
 	 */
 	public void setProductName(String productName) {
-		this.productName = productName;
+		
 	}
 	/**
 	 * gets the product name
 	 * @return the product name
 	 */
 	public String getProductName() {
-		return productName;
+		return null;
 	}
 	
 	/**
 	 * Sets the task counter as the largest ID plus one
 	 */
 	private void setTaskCounter() {
-		counter = 1;
+		
 	}
 	/**
 	 * empties the list
 	 */
 	private void emptyList() {
-		tasks = new ArrayList<Task>();
+		
 	}
 	/**
 	 * adds a new task
@@ -78,7 +76,7 @@ public class Product {
 	 * @return the tasks
 	 */
 	public List<Task> getTasks() {
-		return tasks;
+		return null;
 	}
 	/**
 	 * gets a specific task by ID
