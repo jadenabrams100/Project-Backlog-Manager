@@ -22,10 +22,6 @@
             <ruleset>Best Practices</ruleset>
         </rule>
         <rule>
-            <name>UnusedLocalVariable</name>
-            <ruleset>Best Practices</ruleset>
-        </rule>
-        <rule>
             <name>UnusedPrivateField</name>
             <ruleset>Best Practices</ruleset>
         </rule>
@@ -50,10 +46,6 @@
             <ruleset>Code Style</ruleset>
         </rule>
         <rule>
-            <name>ClassNamingConventions</name>
-            <ruleset>Code Style</ruleset>
-        </rule>
-        <rule>
             <name>DontImportJavaLang</name>
             <ruleset>Code Style</ruleset>
         </rule>
@@ -63,14 +55,6 @@
         </rule>
         <rule>
             <name>ForLoopShouldBeWhileLoop</name>
-            <ruleset>Code Style</ruleset>
-        </rule>
-        <rule>
-            <name>FormalParameterNamingConventions</name>
-            <ruleset>Code Style</ruleset>
-        </rule>
-        <rule>
-            <name>MethodNamingConventions</name>
             <ruleset>Code Style</ruleset>
         </rule>
         <rule>
@@ -134,15 +118,7 @@
             <ruleset>Error Prone</ruleset>
         </rule>
         <rule>
-            <name>EmptyCatchBlock</name>
-            <ruleset>Error Prone</ruleset>
-        </rule>
-        <rule>
             <name>EmptyFinallyBlock</name>
-            <ruleset>Error Prone</ruleset>
-        </rule>
-        <rule>
-            <name>EmptyIfStmt</name>
             <ruleset>Error Prone</ruleset>
         </rule>
         <rule>
@@ -166,19 +142,11 @@
             <ruleset>Error Prone</ruleset>
         </rule>
         <rule>
-            <name>EmptyWhileStmt</name>
-            <ruleset>Error Prone</ruleset>
-        </rule>
-        <rule>
             <name>EqualsNull</name>
             <ruleset>Error Prone</ruleset>
         </rule>
         <rule>
             <name>JumbledIncrementer</name>
-            <ruleset>Error Prone</ruleset>
-        </rule>
-        <rule>
-            <name>MethodWithSameNameAsEnclosingClass</name>
             <ruleset>Error Prone</ruleset>
         </rule>
         <rule>
