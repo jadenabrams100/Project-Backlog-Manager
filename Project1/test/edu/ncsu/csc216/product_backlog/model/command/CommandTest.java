@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
  */
 class CommandTest {
 
-	
+	/** Constant name for the command owner to simplify testing */
 	private final String OWNER = "Jaden";
-	
+	/** Constant name for the command not to simplify testing. */
 	private final String NOTE = "get milk";
 	/**
 	 * Ensures Command works as intended
@@ -20,7 +20,7 @@ class CommandTest {
 	@Test
 	void testCommand() {
 		// Test valid construction (claim, not null owner, not null note
-		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		Command c = new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
 		assertEquals(Command.CommandValue.CLAIM, c.getCommand());
 		assertEquals(OWNER, c.getOwner());
 		assertEquals(NOTE, c.getNoteText());
@@ -45,7 +45,7 @@ class CommandTest {
 	 */
 	@Test
 	void testGetCommand() {
-		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		Command c = new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
 		
 		assertEquals(Command.CommandValue.CLAIM, c.getCommand());
 	}
@@ -55,7 +55,7 @@ class CommandTest {
 	 */
 	@Test
 	void testGetNoteText() {
-		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		Command c = new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
 		
 		assertEquals(NOTE, c.getNoteText());
 	}
@@ -65,7 +65,7 @@ class CommandTest {
 	 */
 	@Test
 	void testGetOwner() {
-		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		Command c = new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
 		
 		assertEquals(OWNER, c.getOwner());
 	}
