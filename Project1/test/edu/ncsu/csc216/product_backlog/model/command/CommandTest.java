@@ -10,12 +10,34 @@ import org.junit.jupiter.api.Test;
  */
 class CommandTest {
 
+	
+	private final String OWNER = "Jaden";
+	
+	private final String NOTE = "get milk";
 	/**
 	 * Ensures Command works as intended
 	 */
 	@Test
 	void testCommand() {
+		// Test valid construction (claim, not null owner, not null note
+		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		assertEquals(Command.CommandValue.CLAIM, c.getCommand());
+		assertEquals(OWNER, c.getOwner());
+		assertEquals(NOTE, c.getNoteText());
 		
+		
+		// Test null command value
+		assertThrows(IllegalArgumentException.class, () -> new Command(null, OWNER, NOTE));
+		// test null note
+		assertThrows(IllegalArgumentException.class, () -> new Command(Command.CommandValue.CLAIM, OWNER, null));
+		assertThrows(IllegalArgumentException.class, () -> new Command(Command.CommandValue.CLAIM, OWNER, ""));
+		// test null owner with claim
+		assertThrows(IllegalArgumentException.class, () -> new Command(Command.CommandValue.CLAIM, null, NOTE));
+		// test 0 length owner with claim
+		assertThrows(IllegalArgumentException.class, () -> new Command(Command.CommandValue.CLAIM, "", NOTE));
+		
+		// test non null owner with any other command
+		assertThrows(IllegalArgumentException.class, () -> new Command(Command.CommandValue.BACKLOG, OWNER, NOTE));
 	}
 
 	/**
@@ -23,7 +45,9 @@ class CommandTest {
 	 */
 	@Test
 	void testGetCommand() {
-		fail("Not yet implemented");
+		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		
+		assertEquals(Command.CommandValue.CLAIM, c.getCommand());
 	}
 
 	/**
@@ -31,7 +55,9 @@ class CommandTest {
 	 */
 	@Test
 	void testGetNoteText() {
-		fail("Not yet implemented");
+		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		
+		assertEquals(NOTE, c.getNoteText());
 	}
 
 	/**
@@ -39,7 +65,9 @@ class CommandTest {
 	 */
 	@Test
 	void testGetOwner() {
-		fail("Not yet implemented");
+		Command c =new Command(Command.CommandValue.CLAIM, OWNER, NOTE);
+		
+		assertEquals(OWNER, c.getOwner());
 	}
 
 }
