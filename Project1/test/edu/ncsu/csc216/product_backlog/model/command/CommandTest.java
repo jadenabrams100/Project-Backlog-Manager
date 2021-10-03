@@ -15,7 +15,7 @@ class CommandTest {
 	 */
 	@Test
 	void testCommand() {
-		fail("Not yet implemented");
+		
 	}
 
 	/**

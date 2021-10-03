@@ -18,33 +18,57 @@ public class Command {
 	/** an error message for an invalid command */
 	public static final String COMMAND_ERROR_MESSAGE = "Invalid command.";
 	/**
-	 * constructor for a command
+	 * constructor for a valid command
 	 * @param c the command value
 	 * @param owner the command owner
 	 * @param noteText a note associated with the command
+	 * @throws IllegalArgumentException if the command is null, the note is null, or if there is no owner with the claimed command
+	 * or if there is an owner included with any other command value
 	 */
 	public Command(CommandValue c, String owner, String noteText) {
+		if(c == null) {
+			throw new IllegalArgumentException();
+		}
+		if(noteText == null) {
+			throw new IllegalArgumentException();
+		}
+		if(noteText.length() == 0) {
+			throw new IllegalArgumentException();
+		}
+		if(owner == null || owner.length() == 0) {
+			if(c == CommandValue.CLAIM) {
+				throw new IllegalArgumentException();
+			}
+		}
+		if(owner != null) {
+			if(c != CommandValue.CLAIM) {
+				throw new IllegalArgumentException();
+			}
+		}
 		
+		this.c = c;
+		this.owner = owner;
+		note = noteText;
 	}
 	/**
 	 * returns the command type
 	 * @return the command type
 	 */
 	public CommandValue getCommand() {
-		return null;
+		return c;
 	}
 	/**
 	 * returns the note
 	 * @return the note
 	 */
 	public String getNoteText() {
-		return null;
+		return note;
 	}
 	/**
 	 * returns who owns the command
 	 * @return the owner
 	 */
 	public String getOwner() {
-		return null;
+		return owner;
 	}
 }
