@@ -31,7 +31,7 @@ public class Command {
 	 * @return the command type
 	 */
 	public CommandValue getCommand() {
-		return c;
+		return null;
 	}
 	/**
 	 * returns the note
