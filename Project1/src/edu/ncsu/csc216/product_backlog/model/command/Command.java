@@ -35,15 +35,11 @@ public class Command {
 		if(noteText.length() == 0) {
 			throw new IllegalArgumentException();
 		}
-		if(owner == null || owner.length() == 0) {
-			if(c == CommandValue.CLAIM) {
+		if((owner == null || owner.length() == 0) && c == CommandValue.CLAIM) {
 				throw new IllegalArgumentException();
-			}
 		}
-		if(owner != null) {
-			if(c != CommandValue.CLAIM) {
+		if(owner != null && c != CommandValue.CLAIM) {
 				throw new IllegalArgumentException();
-			}
 		}
 		
 		this.c = c;
