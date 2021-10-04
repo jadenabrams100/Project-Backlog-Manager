@@ -72,7 +72,7 @@ public class Task {
 	/** shorthand symbol for knowledge acquisition*/
 	public static final String T_KNOWLEDGE_ACQUISITION = "KA";
 	/** owner name for unowned tasks */
-	public static final String UNOWNED = "Unowned";
+	public static final String UNOWNED = "unowned";
 	
 	/**
 	 * Constructor for a simple task
@@ -89,10 +89,9 @@ public class Task {
 		setCreator(creator);
 		setOwner(UNOWNED);
 		setVerified("false");
-		ArrayList<String> constructorNotes = new ArrayList<String>();
-		constructorNotes.add(note);
-		setNotes(constructorNotes);
+		notes = new ArrayList<String>();
 		setState(BACKLOG_NAME);
+		addNoteToList(note);
 	}
 	/**
 	 * constructor for a task with more data associated with it
@@ -124,7 +123,7 @@ public class Task {
 	 */
 	private void setTaskId(int taskId) {
 		if (taskId <= 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		this.taskId = taskId;
 	}
@@ -136,10 +135,10 @@ public class Task {
 	 */
 	private void setTitle(String title) {
 		if(title == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(title.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		this.title = title;
 	}
@@ -151,7 +150,7 @@ public class Task {
 	 */
 	private void setType(Type type) {
 		if(type == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		this.type = type;
 	}
@@ -161,10 +160,10 @@ public class Task {
 	 */
 	private void setCreator(String creator) {
 		if(creator == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(creator.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		this.creator = creator;
 	}
@@ -174,10 +173,10 @@ public class Task {
 	 */
 	private void setOwner(String owner) {
 		if(owner == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(owner.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		this.owner = owner;
 	}
@@ -187,10 +186,10 @@ public class Task {
 	 */
 	private void setVerified(String verified) {
 		if(verified == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
-		if(!verified.equalsIgnoreCase("true") && !verified.equalsIgnoreCase("false")) {
-			throw new IllegalArgumentException();
+		if(!"true".equalsIgnoreCase(verified) && !"false".equalsIgnoreCase(verified)) {
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		isVerified = Boolean.valueOf(verified);
 	}
@@ -200,7 +199,7 @@ public class Task {
 	 */
 	private void setNotes(ArrayList<String> notes) {
 		if(notes == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		this.notes = notes;
 	}
@@ -211,13 +210,13 @@ public class Task {
 	 */
 	public int addNoteToList(String note) {
 		if(note == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(note.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
-		notes.add("[" + getStateName() +"] " + note);
-		return notes.size()-1;
+		notes.add("[" + getStateName() + "] " + note);
+		return notes.size() - 1;
 	}
 	/**
 	 * gets the task id
@@ -239,22 +238,22 @@ public class Task {
 	 */
 	private void setState(String state) {
 		if(state == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(state.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(state.equalsIgnoreCase(BACKLOG_NAME) && !owner.equals(UNOWNED)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(state.equalsIgnoreCase(REJECTED_NAME) && !owner.equals(UNOWNED)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(state.equalsIgnoreCase(DONE_NAME) && !isVerified && (type == Type.FEATURE || type == Type.BUG || type == Type.TECHNICAL_WORK)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(state.equalsIgnoreCase(DONE_NAME) && isVerified && type == Type.KNOWLEDGE_ACQUISITION) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		
 		if(state.equalsIgnoreCase(BACKLOG_NAME)) {
@@ -276,7 +275,7 @@ public class Task {
 			currentState = rejectedState;
 		}
 		else {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		
 	}
@@ -286,10 +285,10 @@ public class Task {
 	 */
 	private void setTypeFromString(String t) {
 		if(t == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(t.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		if(t.equals(T_FEATURE)) {
 			type = Type.FEATURE;
@@ -304,7 +303,7 @@ public class Task {
 			type = Type.KNOWLEDGE_ACQUISITION;
 		}
 		else {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid task information.");
 		}
 		
 	}
@@ -398,7 +397,7 @@ public class Task {
 	 * @return the task
 	 */
 	public String toString() {
-		return "* "+ getTaskId() +","+ getStateName() + "," + getTitle() + "," + getTypeShortName() + "," + getCreator() + "," + getOwner() +"," + isVerified() + "\n" + getNotesList();
+		return "* " + getTaskId() + "," + getStateName() + "," + getTitle() + "," + getTypeShortName() + "," + getCreator() + "," + getOwner() + "," + isVerified() + "\n" + getNotesList();
 	}
 	/**
 	 * tells the task to update
@@ -436,7 +435,7 @@ public class Task {
 				addNoteToList(c.getNoteText());
 			}
 			else if(c.getCommand() == Command.CommandValue.REJECT) {
-				
+				currentState = rejectedState;
 			}
 			else {
 				throw new UnsupportedOperationException("Invalid Transition.");
@@ -603,7 +602,7 @@ public class Task {
 				currentState = processingState;
 				addNoteToList(c.getNoteText());
 			}
-			else if(c.getCommand() == Command.CommandValue.PROCESS) {
+			else if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
 				setOwner(UNOWNED);
 				addNoteToList(c.getNoteText());
