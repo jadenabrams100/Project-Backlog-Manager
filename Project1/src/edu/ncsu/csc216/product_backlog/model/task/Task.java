@@ -390,6 +390,7 @@ public class Task {
 		for(int i = 0; i < notes.size(); i++) {
 			notesList = notesList + "- " + notes.get(i) + "\n";
 		}
+		//notesList = notesList + "- " + notes.get(notes.size()-1);
 		return notesList;
 	}
 	/**

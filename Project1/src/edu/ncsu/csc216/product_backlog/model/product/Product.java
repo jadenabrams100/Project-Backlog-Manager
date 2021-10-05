@@ -89,9 +89,20 @@ public class Product {
 				setTaskCounter();
 			}
 		}
+		
 		if(tasks.indexOf(t) == -1) {
-			tasks.add(t);
-			setTaskCounter();
+			if(tasks.size() == 0) {
+				tasks.add(t);
+				setTaskCounter();
+			}
+			else if(tasks.get(0).getTaskId() > t.getTaskId()) {
+				tasks.add(0, t);
+				setTaskCounter();
+			}
+			else {
+				tasks.add(t);
+				setTaskCounter();
+			}
 		}
 		
 	}
@@ -146,10 +157,12 @@ public class Product {
 		int idx = -1;
 		for(int i = 0; i < tasks.size(); i++) {
 			if(tasks.get(i).getTaskId() == id) {
-				idx = 1;
+				idx = i;
 			}
 		}
-		tasks.remove(idx);
+		if(idx != -1) {
+			tasks.remove(idx);
+		}
 		setTaskCounter();
 	}
 }
