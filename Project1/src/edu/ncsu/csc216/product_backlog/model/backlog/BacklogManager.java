@@ -10,7 +10,7 @@ import edu.ncsu.csc216.product_backlog.model.io.ProductsReader;
 import edu.ncsu.csc216.product_backlog.model.io.ProductsWriter;
 import edu.ncsu.csc216.product_backlog.model.product.Product;
 import edu.ncsu.csc216.product_backlog.model.task.Task;
-import edu.ncsu.csc216.product_backlog.model.task.Task.Type;;
+import edu.ncsu.csc216.product_backlog.model.task.Task.Type;
 
 /**
  * Contains all the necessary methods for the backlog manager

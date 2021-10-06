@@ -157,6 +157,7 @@ public class Task {
 	/**
 	 * sets the task creator
 	 * @param creator the creator to set
+	 * @throws IllegalArgumentException if creator is null or empty
 	 */
 	private void setCreator(String creator) {
 		if(creator == null) {
@@ -170,6 +171,7 @@ public class Task {
 	/**
 	 * sets the task owner
 	 * @param owner the owner to set
+	 * @throws IllegalArgumentException if owner is null or empty
 	 */
 	private void setOwner(String owner) {
 		if(owner == null) {
@@ -183,6 +185,7 @@ public class Task {
 	/**
 	 * sets whether the task is verified or not
 	 * @param verified whether the task is verified
+	 * @throws IllegalArgumentException if verified is null or not true of false, ignoring case
 	 */
 	private void setVerified(String verified) {
 		if(verified == null) {
@@ -196,6 +199,7 @@ public class Task {
 	/**
 	 * sets the notes for the task
 	 * @param notes the notes to set
+	 * @throws IllegalArgumentException if notes is null
 	 */
 	private void setNotes(ArrayList<String> notes) {
 		if(notes == null) {
@@ -207,6 +211,7 @@ public class Task {
 	 * adds a note to the list
 	 * @param note the note to add
 	 * @return how many notes there are in the list
+	 * @throws IllegalArgumentException if note is empty or null
 	 */
 	public int addNoteToList(String note) {
 		if(note == null) {
@@ -235,6 +240,10 @@ public class Task {
 	/**
 	 * sets the state
 	 * @param state the state to set
+	 * @throws IllegalArgumentException if state is null, empty, 
+	 * backlog or rejected with an owner that is not onowned
+	 * done, not verified, and not a knowledge acquisition type, or otherwise
+	 * is not the name of a valid state
 	 */
 	private void setState(String state) {
 		if(state == null) {
@@ -282,6 +291,7 @@ public class Task {
 	/**
 	 * sets the type
 	 * @param t the type to set
+	 * @throws IllegalArgumentException if t is null, empty, or does not match the name of a type
 	 */
 	private void setTypeFromString(String t) {
 		if(t == null) {
@@ -427,6 +437,7 @@ public class Task {
 		/**
 		 * changes the state
 		 * @param c the command
+		 * @throws IllegalArgumentException if the command is anything other than CLAIM or REJECT
 		 */
 		@Override
 		public void updateState(Command c) {
@@ -463,6 +474,7 @@ public class Task {
 		/**
 		 * updates the state
 		 * @param c the command
+		 * @throws IllegalArgumentException if command is not PROCESS, REJECT, or BACKLOG
 		 */
 		@Override
 		public void updateState(Command c) {
@@ -504,6 +516,7 @@ public class Task {
 		/**
 		 * updates the state
 		 * @param c the command
+		 * @throws IllegalArgumentException if the command is invalid according to the FSM
 		 */
 		@Override
 		public void updateState(Command c) {
@@ -558,6 +571,7 @@ public class Task {
 		/**
 		 * updates the state
 		 * @param c the command
+		 * @throws IllegalArgumentException if the command is anything other than COMPLETE or PROCESS
 		 */
 		@Override
 		public void updateState(Command c) {
@@ -596,6 +610,7 @@ public class Task {
 		/**
 		 * updates the state
 		 * @param c the command
+		 * @throws IllegalArgumentException if command is anything other than PROCESS or BACKLOG
 		 */
 		@Override
 		public void updateState(Command c) {
@@ -633,6 +648,7 @@ public class Task {
 		/**
 		 * updates the state
 		 * @param c the command
+		 * @throws IllegalArgumentException if command is anything other than BACKLOG
 		 */
 		@Override
 		public void updateState(Command c) {

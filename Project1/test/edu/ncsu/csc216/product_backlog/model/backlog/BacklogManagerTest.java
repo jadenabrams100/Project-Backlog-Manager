@@ -16,14 +16,14 @@ import edu.ncsu.csc216.product_backlog.model.task.Task;
  */
 class BacklogManagerTest {
 
-	
-	private final String VALID_FILE = "test-files/exp_tasks.txt";
+	/** String holding the file path to a standard valid file. */
+	private static final String VALID_FILE = "test-files/exp_tasks.txt";
 	/**
 	 * Ensures that getInstance works properly
 	 */
 	@Test
 	void testGetInstance() {
-		assertTrue(BacklogManager.getInstance() != null);
+		assertNotNull(BacklogManager.getInstance());
 	}
 
 	/**
@@ -43,7 +43,7 @@ class BacklogManagerTest {
 			if(fileReader.hasNextLine() || fileReader.hasNextLine()) {
 				fail("One of the files has too many lines");
 			}
-		}catch(Exception e){
+		} catch(Exception e){
 			fail();
 		}
 		bm.clearProducts();
@@ -122,9 +122,9 @@ class BacklogManagerTest {
 	@Test
 	void testExecuteCommand() {
 		BacklogManager bm = BacklogManager.getInstance();
-		assertDoesNotThrow(() -> bm.executeCommand(4, new Command(Command.CommandValue.CLAIM,"jlabrams","note")));
+		assertDoesNotThrow(() -> bm.executeCommand(4, new Command(Command.CommandValue.CLAIM, "jlabrams", "note")));
 		bm.loadFromFile(VALID_FILE);
-		bm.executeCommand(7, new Command(Command.CommandValue.CLAIM,"jlabrams","note"));
+		bm.executeCommand(7, new Command(Command.CommandValue.CLAIM, "jlabrams", "note"));
 		assertEquals("Owned", bm.getTaskById(7).getStateName());
 		bm.clearProducts();
 	}
@@ -235,7 +235,7 @@ class BacklogManagerTest {
 	@Test
 	void testDeleteProduct() {
 		BacklogManager bm = BacklogManager.getInstance();
-		assertThrows(IllegalArgumentException.class,() -> bm.deleteProduct());
+		assertThrows(IllegalArgumentException.class, () -> bm.deleteProduct());
 		bm.loadFromFile(VALID_FILE);
 		bm.deleteProduct();
 		assertNull(bm.getProductName());

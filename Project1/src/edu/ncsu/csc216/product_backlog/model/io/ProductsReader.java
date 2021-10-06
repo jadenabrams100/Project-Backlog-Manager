@@ -76,7 +76,7 @@ public class ProductsReader {
 			//add each task to the product
 			s.close();
 			return p;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			return null;
 		}
 		
@@ -113,8 +113,8 @@ public class ProductsReader {
 			// use last delimiter to separate notes
 			// create and return task
 			s.close();
-			return new Task(id,state,title,type,creator,owner,verified,notes);
-		}catch(Exception e) {
+			return new Task(id, state, title, type, creator, owner, verified, notes);
+		} catch(Exception e) {
 			return null;
 		}
 		
