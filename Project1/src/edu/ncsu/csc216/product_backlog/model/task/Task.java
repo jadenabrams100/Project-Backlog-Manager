@@ -450,7 +450,7 @@ public class Task {
 				currentState = rejectedState;
 			}
 			else {
-				throw new UnsupportedOperationException("Invalid Transition.");
+				throw new UnsupportedOperationException("Invalid transition.");
 			}
 		}
 
@@ -493,7 +493,7 @@ public class Task {
 				addNoteToList(c.getNoteText());
 			}
 			else {
-				throw new UnsupportedOperationException("Invalid Transition.");
+				throw new UnsupportedOperationException("Invalid transition.");
 			}
 		}
 
@@ -529,7 +529,7 @@ public class Task {
 					addNoteToList(c.getNoteText());
 				}
 				else {
-					throw new UnsupportedOperationException("Invalid Transition");
+					throw new UnsupportedOperationException("Invalid transition.");
 				}
 			}
 			else if(c.getCommand() == Command.CommandValue.COMPLETE) {
@@ -538,7 +538,7 @@ public class Task {
 					addNoteToList(c.getNoteText());
 				}
 				else {
-					throw new UnsupportedOperationException("Invalid Transition");
+					throw new UnsupportedOperationException("Invalid transition.");
 				}
 			}
 			else if(c.getCommand() == Command.CommandValue.BACKLOG) {
@@ -547,7 +547,7 @@ public class Task {
 				addNoteToList(c.getNoteText());
 			}
 			else {
-				throw new UnsupportedOperationException("Invalid Transition");
+				throw new UnsupportedOperationException("Invalid transition.");
 			}
 		}
 
@@ -584,7 +584,7 @@ public class Task {
 				addNoteToList(c.getNoteText());
 			}
 			else {
-				throw new UnsupportedOperationException("Invalid Transition.");
+				throw new UnsupportedOperationException("Invalid transition.");
 			}
 			
 		}
@@ -624,7 +624,7 @@ public class Task {
 				addNoteToList(c.getNoteText());
 			}
 			else {
-				throw new UnsupportedOperationException("Invalid Transition");
+				throw new UnsupportedOperationException("Invalid transition.");
 			}
 			
 		}
@@ -657,7 +657,7 @@ public class Task {
 				addNoteToList(c.getNoteText());
 			}
 			else {
-				throw new UnsupportedOperationException("Invalid Transition.");
+				throw new UnsupportedOperationException("Invalid transition.");
 			}
 		}
 
