@@ -27,19 +27,19 @@ public class Command {
 	 */
 	public Command(CommandValue c, String owner, String noteText) {
 		if(c == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid command.");
 		}
 		if(noteText == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid command.");
 		}
 		if(noteText.length() == 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid command.");
 		}
 		if((owner == null || owner.length() == 0) && c == CommandValue.CLAIM) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException("Invalid command.");
 		}
 		if(owner != null && c != CommandValue.CLAIM) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException("Invalid command.");
 		}
 		
 		this.c = c;
