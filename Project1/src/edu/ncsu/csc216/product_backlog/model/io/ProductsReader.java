@@ -49,7 +49,7 @@ public class ProductsReader {
 			
 			
 		} catch (FileNotFoundException e) {
-			throw new IllegalArgumentException("Unable to load file");
+			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
 		
