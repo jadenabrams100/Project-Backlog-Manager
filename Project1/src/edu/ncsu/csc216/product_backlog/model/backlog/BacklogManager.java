@@ -219,7 +219,7 @@ public class BacklogManager {
 	 */
 	public void deleteProduct() {
 		if(currentProduct == null) {
-			throw new IllegalArgumentException("No product selected");
+			throw new IllegalArgumentException("No product selected.");
 		}
 		products.remove(currentProduct);
 		if(products.size() == 0) {
