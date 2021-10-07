@@ -485,12 +485,12 @@ public class Task {
 			}
 			else if(c.getCommand() == Command.CommandValue.REJECT) {
 				currentState = rejectedState;
-				setOwner(UNOWNED);
+				setOwner(null);
 				addNoteToList(c.getNoteText());
 			}
 			else if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
-				setOwner(UNOWNED);
+				setOwner(null);
 				addNoteToList(c.getNoteText());
 			}
 			else {
@@ -544,7 +544,7 @@ public class Task {
 			}
 			else if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
-				setOwner(UNOWNED);
+				setOwner(null);
 				addNoteToList(c.getNoteText());
 			}
 			else {
@@ -624,7 +624,7 @@ public class Task {
 			}
 			else if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
-				setOwner(UNOWNED);
+				setOwner(null);
 				addNoteToList(c.getNoteText());
 				isVerified = false;
 			}
@@ -660,6 +660,7 @@ public class Task {
 			if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
 				addNoteToList(c.getNoteText());
+				setOwner(null);
 			}
 			else {
 				throw new UnsupportedOperationException("Invalid transition.");
