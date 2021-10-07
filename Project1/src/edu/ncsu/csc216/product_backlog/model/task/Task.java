@@ -448,6 +448,7 @@ public class Task {
 			}
 			else if(c.getCommand() == Command.CommandValue.REJECT) {
 				currentState = rejectedState;
+				addNoteToList(c.getNoteText());
 			}
 			else {
 				throw new UnsupportedOperationException("Invalid transition.");
