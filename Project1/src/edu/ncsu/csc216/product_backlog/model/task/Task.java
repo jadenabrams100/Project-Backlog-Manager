@@ -579,10 +579,12 @@ public class Task {
 			if(c.getCommand() == Command.CommandValue.COMPLETE) {
 				currentState = doneState;
 				addNoteToList(c.getNoteText());
+				isVerified = true;
 			}
 			else if(c.getCommand() == Command.CommandValue.PROCESS) {
 				currentState = processingState;
 				addNoteToList(c.getNoteText());
+				isVerified = false;
 			}
 			else {
 				throw new UnsupportedOperationException("Invalid transition.");
