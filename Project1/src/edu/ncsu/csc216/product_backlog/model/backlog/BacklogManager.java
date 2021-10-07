@@ -49,7 +49,7 @@ public class BacklogManager {
 			throw new IllegalArgumentException("Unable to save file.");
 		}
 		if(currentProduct.getTasks().size() == 0) {
-			throw new IllegalArgumentException("Unable to save to file.");
+			throw new IllegalArgumentException("Unable to save file.");
 		}
 		ProductsWriter.writeProductsToFile(fileName, products);
 	}
