@@ -661,7 +661,6 @@ public class Task {
 			if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
 				addNoteToList(c.getNoteText());
-				//setOwner(c.getOwner());
 			}
 			else {
 				throw new UnsupportedOperationException("Invalid transition.");

@@ -62,7 +62,7 @@ public class ProductsReader {
 	private static Product processProduct(String productLine) {
 		try {
 			Scanner s = new Scanner(productLine);
-			Product p = new Product(s.nextLine().substring(1));
+			Product p = new Product(s.nextLine().trim());
 			s.useDelimiter("\\r?\\n?[*]");
 			while(s.hasNext()) {
 				Task t = processTask(s.next());
@@ -90,7 +90,7 @@ public class ProductsReader {
 		try {
 			Scanner s = new Scanner(taskLine);
 			ArrayList<String> notes = new ArrayList<String>();
-			String taskInfo = s.nextLine().substring(1);
+			String taskInfo = s.nextLine().trim();
 			int id;
 			String state, title, type, creator, owner, verified;
 			Scanner s1 = new Scanner(taskInfo);
@@ -107,7 +107,6 @@ public class ProductsReader {
 			while(s.hasNext()) {
 				notes.add(s.next().substring(1));
 			}
-			
 			//create list to store the notes
 			// use comma delimiter to get task parameters
 			// use last delimiter to separate notes
