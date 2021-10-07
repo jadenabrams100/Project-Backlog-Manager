@@ -62,10 +62,6 @@ public class ProductsReader {
 	private static Product processProduct(String productLine) {
 		try {
 			Scanner s = new Scanner(productLine);
-			if(s.nextLine().substring(0,1).equals("*")) {
-				s.close();
-				return null;
-			}
 			Product p = new Product(s.nextLine().substring(1));
 			s.useDelimiter("\\r?\\n?[*]");
 			while(s.hasNext()) {
