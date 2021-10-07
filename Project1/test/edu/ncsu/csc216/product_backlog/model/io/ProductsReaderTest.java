@@ -13,8 +13,8 @@ import edu.ncsu.csc216.product_backlog.model.product.Product;
  *
  */
 class ProductsReaderTest {
-	
-	private final String VALID_FILE = "test-files/exp_tasks.txt";
+	/** a shorthand for the file with products and tasks in a valid format */
+	private static final String VALID_FILE = "test-files/exp_tasks.txt";
 
 	/**
 	 * ensures that readProductsFile works as intended

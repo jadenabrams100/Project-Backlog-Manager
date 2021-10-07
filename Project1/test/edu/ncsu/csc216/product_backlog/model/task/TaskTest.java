@@ -14,16 +14,24 @@ import edu.ncsu.csc216.product_backlog.model.command.Command;
  */
 class TaskTest {
 
-	
-	private final int ID = 4;
-	private final String TITLE = "title";
-	private final String CREATOR = "me";
-	private final String OWNER = "me";
-	private final String STATE = "Owned";
-	private final String FALSE = "false";
-	private final String TRUE = "true";
-	private final String NOTE = "note";
-	private final String TYPE = "F";
+	/** a task ID for testing */
+	private static final int ID = 4;
+	/** a task title for testing */
+	private static final String TITLE = "title";
+	/** a task creator for testing */
+	private static final String CREATOR = "me";
+	/** a task owner for testing */
+	private static final String OWNER = "me";
+	/** a task state for testing */
+	private static final String STATE = "Owned";
+	/** a task verifier for testing */
+	private static final String FALSE = "false";
+	/** a task verifier for testing */
+	private static final String TRUE = "true";
+	/** a task note for testing */
+	private static final String NOTE = "note";
+	/** a task type in string form for testing */
+	private static final String TYPE = "F";
 	
 	
 	/**
@@ -254,7 +262,7 @@ class TaskTest {
 		t1.update(reject);
 		assertEquals("Rejected", t1.getStateName());
 		//owned
-		Task t2 = new Task(ID, TITLE, Task.Type.FEATURE, CREATOR, NOTE);
+		//Task t2 = new Task(ID, TITLE, Task.Type.FEATURE, CREATOR, NOTE);
 		
 		
 		

@@ -15,8 +15,8 @@ import edu.ncsu.csc216.product_backlog.model.product.Product;
  *
  */
 class ProductsWriterTest {
-	
-	private final String VALID_FILE = "test-files/exp_tasks.txt";
+	/** a shorthand for a valid file path */
+	private static final String VALID_FILE = "test-files/exp_tasks.txt";
 
 	/**
 	 * ensures that writeProductsToFile works as intended
@@ -34,7 +34,7 @@ class ProductsWriterTest {
 			if(fileReader.hasNextLine() || fileReader.hasNextLine()) {
 				fail("One of the files has too many lines");
 			}
-		}catch(Exception e){
+		} catch(Exception e){
 			fail();
 		}
 	}

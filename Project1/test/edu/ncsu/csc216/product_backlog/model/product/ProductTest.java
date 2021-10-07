@@ -14,17 +14,24 @@ import edu.ncsu.csc216.product_backlog.model.task.Task.Type;
  */
 class ProductTest {
 
+	/** a product name */
+	private static final String NAME = "My Product";
+	/** a product id for testing */
+	private static final int ID_ONE = 4;
+	/** a second product ID for testing */
+	private static final int ID_TWO = 2;
+	/** a task title for testing */
+	private static final String TITLE = "Title";
+	/** a task type for testing */
+	private static final Type TYPE = Task.Type.FEATURE;
+	/** a task creator for testing */
+	private static final String CREATOR = "Me";
+	/** a task note for testing */
+	private static final String NOTE = "note";
 	/**
 	 * ensures that the Product constructor works as intended
 	 */
 	
-	private final String NAME = "My Product";
-	private final int ID_ONE = 4;
-	private final int ID_TWO = 2;
-	private final String TITLE = "Title";
-	private final Type TYPE = Task.Type.FEATURE;
-	private final String CREATOR = "Me";
-	private final String NOTE = "note";
 	
 	@Test
 	void testProduct() {
@@ -167,7 +174,7 @@ class ProductTest {
 		p.addTask(t3);
 		p.addTask(t4);
 		p.addTask(t5);
-		p.executeCommand(1, new Command(Command.CommandValue.CLAIM,"Also Me", "New Note"));
+		p.executeCommand(1, new Command(Command.CommandValue.CLAIM, "Also Me", "New Note"));
 		assertEquals("Owned", p.getTaskById(1).getStateName());
 		assertEquals("Also Me", p.getTaskById(1).getOwner());
 	}

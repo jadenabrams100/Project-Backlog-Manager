@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 class CommandTest {
 
 	/** Constant name for the command owner to simplify testing */
-	private final String OWNER = "Jaden";
+	private static final String OWNER = "Jaden";
 	/** Constant name for the command not to simplify testing. */
-	private final String NOTE = "get milk";
+	private static final String NOTE = "get milk";
 	/**
 	 * Ensures Command works as intended
 	 */
