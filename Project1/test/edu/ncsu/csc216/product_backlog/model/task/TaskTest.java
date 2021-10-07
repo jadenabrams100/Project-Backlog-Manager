@@ -87,7 +87,6 @@ class TaskTest {
 		assertThrows(IllegalArgumentException.class, () -> new Task(ID, STATE, TITLE, TYPE, null, OWNER, FALSE, notes));
 		assertThrows(IllegalArgumentException.class, () -> new Task(ID, STATE, TITLE, TYPE, "", OWNER, FALSE, notes));
 		
-		assertThrows(IllegalArgumentException.class, () -> new Task(ID, STATE, TITLE, TYPE, CREATOR, null, FALSE, notes));
 		assertThrows(IllegalArgumentException.class, () -> new Task(ID, STATE, TITLE, TYPE, CREATOR, "", FALSE, notes));
 		
 		assertThrows(IllegalArgumentException.class, () -> new Task(ID, STATE, TITLE, TYPE, CREATOR, OWNER, null, notes));
@@ -274,12 +273,12 @@ class TaskTest {
 		assertThrows(UnsupportedOperationException.class, () -> t3.update(claim));
 		t3.update(backlog);
 		assertEquals("Backlog", t3.getStateName());
-		assertEquals("unowned", t3.getOwner());
+		assertEquals(null, t3.getOwner());
 		//reject
 		Task t4 = new Task(ID, STATE, TITLE, TYPE, CREATOR, OWNER, FALSE, notes);
 		t4.update(reject);
 		assertEquals("Rejected", t4.getStateName());
-		assertEquals("unowned", t4.getOwner());
+		assertEquals(null, t4.getOwner());
 		
 		//processing
 		Task t5 = new Task(ID, STATE, TITLE, TYPE, CREATOR, OWNER, FALSE, notes);
@@ -295,7 +294,7 @@ class TaskTest {
 				//backlog
 		t6.update(backlog);
 		assertEquals("Backlog", t6.getStateName());
-		assertEquals("unowned", t6.getOwner());
+		assertEquals(null, t6.getOwner());
 				//processing
 		Task t7 = new Task(ID, "Processing", TITLE, TYPE, CREATOR, OWNER, TRUE, notes);
 		t7.update(process);
@@ -328,7 +327,7 @@ class TaskTest {
 				//backlog
 		t11.update(backlog);
 		assertEquals("Backlog", t11.getStateName());
-		assertEquals("unowned", t11.getOwner());
+		assertEquals(null, t11.getOwner());
 				//processing
 		Task t12 = new Task(ID, "Done", TITLE, TYPE, CREATOR, OWNER, TRUE, notes);
 		t12.update(process);

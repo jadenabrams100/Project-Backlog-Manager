@@ -175,7 +175,8 @@ public class Task {
 	 */
 	private void setOwner(String owner) {
 		if(owner == null) {
-			throw new IllegalArgumentException("Invalid task information.");
+			this.owner = owner;
+			return;
 		}
 		if(owner.length() == 0) {
 			throw new IllegalArgumentException("Invalid task information.");
