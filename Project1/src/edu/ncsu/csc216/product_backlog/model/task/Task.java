@@ -620,11 +620,13 @@ public class Task {
 			if(c.getCommand() == Command.CommandValue.PROCESS) {
 				currentState = processingState;
 				addNoteToList(c.getNoteText());
+				isVerified = false;
 			}
 			else if(c.getCommand() == Command.CommandValue.BACKLOG) {
 				currentState = backlogState;
 				setOwner(UNOWNED);
 				addNoteToList(c.getNoteText());
+				isVerified = false;
 			}
 			else {
 				throw new UnsupportedOperationException("Invalid transition.");
