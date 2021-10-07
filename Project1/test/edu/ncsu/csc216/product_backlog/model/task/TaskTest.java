@@ -333,6 +333,17 @@ class TaskTest {
 		Task t12 = new Task(ID, "Done", TITLE, TYPE, CREATOR, OWNER, TRUE, notes);
 		t12.update(process);
 		assertEquals("Processing", t12.getStateName());
+		
+		//test rejected tasks
+		Task t13 = new Task(ID, "Rejected", TITLE, TYPE, CREATOR, "unowned", TRUE, notes);
+		//assert throws for everything except for backlog
+		assertThrows(UnsupportedOperationException.class, () -> t13.update(claim));
+		assertThrows(UnsupportedOperationException.class, () -> t13.update(process));
+		assertThrows(UnsupportedOperationException.class, () -> t13.update(verify));
+		assertThrows(UnsupportedOperationException.class, () -> t13.update(complete));
+		assertThrows(UnsupportedOperationException.class, () -> t13.update(reject));
+		t13.update(backlog);
+		assertEquals("Backlog", t13.getStateName());
 	}
 
 	/**
