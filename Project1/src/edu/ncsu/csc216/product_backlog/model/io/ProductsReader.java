@@ -109,7 +109,7 @@ public class ProductsReader {
 			s1.close();
 			s.useDelimiter("\\r?\\n?[-]");
 			while(s.hasNext()) {
-				notes.add(s.next().substring(1));
+				notes.add(s.next().trim());
 			}
 			//create list to store the notes
 			// use comma delimiter to get task parameters
