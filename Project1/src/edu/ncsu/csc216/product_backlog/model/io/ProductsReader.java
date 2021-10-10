@@ -65,9 +65,13 @@ public class ProductsReader {
 			Product p = new Product(s.nextLine().trim());
 			s.useDelimiter("\\r?\\n?[*]");
 			while(s.hasNext()) {
-				Task t = processTask(s.next());
-				if(t != null) {
-					p.addTask(t);
+				try {
+					Task t = processTask(s.next());
+					if(t != null) {
+						p.addTask(t);
+					}
+				}catch(IllegalArgumentException e) {
+					continue;
 				}
 			}
 			//create product with product name

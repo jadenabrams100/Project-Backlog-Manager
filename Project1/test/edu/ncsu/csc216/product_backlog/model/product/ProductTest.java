@@ -123,7 +123,26 @@ class ProductTest {
 		notes4.add("[Backlog] Express carts always choose the shortest line. If there are multiple shortest lines, an express cart chooses the one with the smallest index.");
 		Task t9 = new Task(1,"Backlog","Express Carts", "F", "jep","unowned","false",notes4);
 		p2.addTask(t9);
-		//add task 10
+		ArrayList<String> notes5 = new ArrayList<String>();
+		notes5.add("[Backlog] Add flatbed carts to simulation.");
+		notes5.add("[Owned] Rejected. Flatbed carts won't fit through physical register stations.");
+		Task t10 = new Task(10,"Rejected","Flatbed Carts", "F", "jep", "unowned", "false", notes5);
+		p2.addTask(t10);
+		ArrayList<String> notes6 = new ArrayList<String>();
+		notes6.add("[Backlog] This task should be ignored due to a duplicate id number");
+		Task t11 = new Task(5,"Backlog","Ignored","F","sesmith5","unowned","false",notes6);
+		//p2.addTask(t11);
+		ArrayList<String> notes7 = new ArrayList<String>();
+		notes7.add("[Backlog] Special carts always choose the shortest special register line.\n"
+				+ "If there are multiple shortest special register lines, a special cart\n"
+				+ "chooses one with the smallest index.");
+		notes7.add("[Owned] Adding to sesmith5 backlog.");
+		notes7.add("[Processing] Created hierarchy to prepare for other cart types.");
+		notes7.add("[Verifying] Implementation complete. Requires peer inspection.");
+		notes7.add("[Done] No problems found during inspection.");
+		Task t12 = new Task(8,"Done","Special Carts", "F", "jep","sesmith5","true",notes7);
+		p2.addTask(t12);
+		assertEquals(6, p2.getTasks().size());
 		
 	}
 
