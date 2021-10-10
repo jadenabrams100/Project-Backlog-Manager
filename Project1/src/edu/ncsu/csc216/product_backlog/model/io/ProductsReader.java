@@ -70,7 +70,7 @@ public class ProductsReader {
 					if(t != null) {
 						p.addTask(t);
 					}
-				}catch(IllegalArgumentException e) {
+				} catch(IllegalArgumentException e) {
 					continue;
 				}
 			}

@@ -4,4 +4,3 @@
 - [Owned] note
 * 7,Backlog,Test task 1,B,sesmith5,unowned,false
 - [Backlog] note 1
-
