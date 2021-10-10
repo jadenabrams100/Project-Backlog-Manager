@@ -22,6 +22,7 @@ public class ProductsReader {
 	 * takes a file and pulls the tasks from it
 	 * @param fileName the file with the products
 	 * @return the products
+	 * @throws IllegalArgumentException if the file cannot be found or loaded
 	 */
 	public static ArrayList<Product> readProductsFile(String fileName) {
 		try {
@@ -38,13 +39,14 @@ public class ProductsReader {
 			// read each product token into processProduct
 			while(s1.hasNext()) {
 				Product p = processProduct(s1.next());
-				if(p != null) {
+				if(p != null && p.getTasks().size() != 0) {
 					products.add(p);
 				}
 			}
 			//add the resulting product to products
 			fileReader.close();
 			s1.close();
+			
 			return products;
 			
 			
