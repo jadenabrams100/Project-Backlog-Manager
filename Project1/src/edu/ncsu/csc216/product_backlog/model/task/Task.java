@@ -242,7 +242,7 @@ public class Task {
 	 * sets the state
 	 * @param state the state to set
 	 * @throws IllegalArgumentException if state is null, empty, 
-	 * backlog or rejected with an owner that is not onowned
+	 * backlog or rejected with an owner that is not unowned
 	 * done, not verified, and not a knowledge acquisition type, or otherwise
 	 * is not the name of a valid state
 	 */
@@ -259,6 +259,10 @@ public class Task {
 		if(state.equalsIgnoreCase(REJECTED_NAME) && !owner.equals(UNOWNED)) {
 			throw new IllegalArgumentException("Invalid task information.");
 		}
+		if(!state.equalsIgnoreCase(BACKLOG_NAME) && !state.equalsIgnoreCase(REJECTED_NAME) && owner.equalsIgnoreCase(UNOWNED)) {
+			throw new IllegalArgumentException("Invalid task information.");
+		}
+		
 		if(state.equalsIgnoreCase(DONE_NAME) && !isVerified && (type == Type.FEATURE || type == Type.BUG || type == Type.TECHNICAL_WORK)) {
 			throw new IllegalArgumentException("Invalid task information.");
 		}
