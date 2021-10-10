@@ -33,6 +33,9 @@ public class ProductsReader {
 			while(fileReader.hasNextLine()) {
 				fileLine = fileLine + fileReader.nextLine() + "\n";
 			}
+			if(fileLine.indexOf("-") == -1) {
+				return products;
+			}
 			Scanner s1 = new Scanner(fileLine);
 			//use the first delimiter to separate the products
 			s1.useDelimiter("\\r?\\n?[#]");
