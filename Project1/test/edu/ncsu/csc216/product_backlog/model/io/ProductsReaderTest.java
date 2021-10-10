@@ -27,6 +27,12 @@ class ProductsReaderTest {
 		assertEquals("Test Product", products.get(0).getProductName());
 		assertEquals(2, products.get(0).getTasks().size());
 		
+		products.clear();
+		
+		products = ProductsReader.readProductsFile("test-files/tasks2.txt");
+		assertEquals(1, products.size());
+		
+		
 		
 	}
 

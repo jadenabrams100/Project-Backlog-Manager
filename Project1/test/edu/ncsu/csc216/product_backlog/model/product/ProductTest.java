@@ -2,6 +2,8 @@ package edu.ncsu.csc216.product_backlog.model.product;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.product_backlog.model.command.Command;
@@ -98,6 +100,30 @@ class ProductTest {
 		assertEquals(t4, p.getTasks().get(4));
 		assertThrows(IllegalArgumentException.class, () -> p.addTask(t2));
 		
+		Product p2 = new Product("Shopping Cart Simulation");
+		ArrayList<String> notes1 = new ArrayList<String>();
+		notes1.add("[Backlog] Regular carts always choose the shortest line excluding the express register line (at index 0). If there are multiple shortest lines, a regular cart chooses one with the smallest index.");
+		notes1.add("[Owned] Adding to sesmith5 backlog.");
+		Task t6 = new Task(2,"Owned","Regular Carts","F","jep","sesmith5","false",notes1);
+		p2.addTask(t6);
+		ArrayList<String> notes2 = new ArrayList<String>();
+		notes2.add("[Backlog] Special carts are failing system tests associated with wait time.");
+		notes2.add("[Owned] Adding to sesmith5 backlog.");
+		notes2.add("[Processing] Replicated failure locally in unit test.");
+		notes2.add("[Verifying] Implementation complete. Requires peer inspection.");
+		Task t7 = new Task(5,"Verifying","Calculating Wait Time", "B","jdyoung2","sesmith5","false",notes2);
+		p2.addTask(t7);
+		ArrayList<String> notes3 = new ArrayList<String>();
+		notes3.add("[Backlog] Learn more about Swing to debug GUI.");
+		notes3.add("[Owned] Adding to sesmith5 backlog.");
+		notes3.add("[Processing] Found Swing tutorials at http://docs.oracle.com/javase/tutorial/uiswing/start/.");
+		Task t8 = new Task(3,"Processing", "Java Swing", "KA", "sesmith5","sesmith5","false",notes3);
+		p2.addTask(t8);
+		ArrayList<String> notes4 = new ArrayList<String>();
+		notes4.add("[Backlog] Express carts always choose the shortest line. If there are multiple shortest lines, an express cart chooses the one with the smallest index.");
+		Task t9 = new Task(1,"Backlog","Express Carts", "F", "jep","unowned","false",notes4);
+		p2.addTask(t9);
+		//add task 10
 		
 	}
 
