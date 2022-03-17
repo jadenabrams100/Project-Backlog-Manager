@@ -1,2 +1,2 @@
-# csc216-P1-002-001
+# CSC-216-Project-Backlog-Manager
 This was a project I made for my CSC 216: Software Development Fundamentals class where I had to demonstrate proficiency in object oriented programming by developing and testing an application that tracks the development of a project and its individual parts. This project also placed emphasis on getting familiar with developing software using the state pattern and modeling software as a finite state machine.
